@@ -1,13 +1,3 @@
-<template>
-  <div>
-    <slot
-      :countdown="currentTime"
-      :resolved="resolved"
-      :formatted="formatted"
-    >{{ formatted }}</slot>
-  </div>
-</template>
-<script>
 import { resolveCountdown, formatCountdown } from './utils'
 
 export default {
@@ -91,6 +81,10 @@ export default {
     if (this.autoStart) {
       this.start()
     }
+  },
+  render() {
+    return (
+      <div>{ this.$slots.default || this.formatted }</div>
+    )
   }
 }
-</script>

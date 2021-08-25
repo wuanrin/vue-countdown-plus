@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const src = path.resolve(__dirname, './src')
@@ -11,7 +10,7 @@ module.exports = function(env = {}, argv) {
     mode: prod ? 'production' : 'development',
     devtool: prod ? 'source-map' : 'inline-source-map',
     context: src,
-    entry: './CountdownPlus.vue',
+    entry: './index.js',
     output: {
       path: dist,
       filename: prod ? 'countdown-plus.min.js' : 'countdown-plus.js',
@@ -24,6 +23,12 @@ module.exports = function(env = {}, argv) {
           test: /\.vue$/i,
           loader: 'vue-loader',
           include: src
+        },
+        {
+          test: /\.jsx?$/i,
+          loader: 'babel-loader',
+          include: src,
+          exclude: /node_modules/,
         }
       ]
     },

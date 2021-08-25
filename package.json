@@ -1,7 +1,7 @@
 {
   "name": "vue-countdown-plus",
-  "version": "1.0.0",
-  "description": "A simple countdown component for Vue2.0.",
+  "version": "1.0.2",
+  "description": "A simple countdown component for Vue2.0+.",
   "main": "dist/countdown-plus.js",
   "scripts": {
     "start": "webpack --env --color --progress --watch",
@@ -25,6 +25,11 @@
   },
   "homepage": "https://github.com/wuanrin/vue-countdown-plus#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
     "vue-loader": "^15.9.8",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.51.1",
