@@ -4,7 +4,8 @@
   "description": "A simple countdown component for Vue2.0.",
   "main": "dist/countdown-plus.js",
   "scripts": {
-    "dev": "webpack --env --color --progress",
+    "start": "webpack --env --color --progress",
+    "dev": "webpack --env --color --progress --watch",
     "build": "webpack --env=prod --color --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
