@@ -1,0 +1,32 @@
+{
+  "name": "vue-countdown-plus",
+  "version": "1.0.0",
+  "description": "A simple countdown component for Vue2.0.",
+  "main": "dist/countdown-plus.js",
+  "scripts": {
+    "dev": "webpack --env --color --progress",
+    "build": "webpack --env=prod --color --progress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuanrin/vue-countdown-plus.git"
+  },
+  "keywords": [
+    "vue",
+    "countdown",
+    "timer"
+  ],
+  "author": "wuanrin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wuanrin/vue-countdown-plus/issues"
+  },
+  "homepage": "https://github.com/wuanrin/vue-countdown-plus#readme",
+  "devDependencies": {
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  }
+}
