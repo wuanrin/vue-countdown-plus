@@ -83,6 +83,30 @@ export default {
 <countdown-plus :time="60 * 1000" format="ss" />
 ```
 
+### Events
+
+```html
+<countdown-plus
+  :time="5 * 1000"
+  format="ss"
+  @change="handleChange"
+  @finish="handleFinish"
+/>
+```
+
+```js
+export default {
+  methods: {
+    handleChange ({ currentTime, resolved, formatted }) {
+      console.log(currentTime, resolved, formatted)
+    },
+    handleFinish () {
+      console.log('finished')
+    }
+  }
+}
+```
+
 ## API
 
 ### Props
@@ -117,6 +141,7 @@ Using `DD ~Day HH:mm:ss` can solve this problem.
 
 | Event  | Description                      | Arguments |
 | ------ | -------------------------------- | --------- |
+| change | Emitted when count down changed  | { currentTime, resolved, formatted } |
 | finish | Emitted when count down finished | -         |
 
 ### Slots
