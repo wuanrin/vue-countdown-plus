@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const src = path.resolve(__dirname, './src')
 const dist = path.resolve(__dirname, './dist')
 
-module.exports = function(env = {}, argv) {
+module.exports = function(env = {}) {
   const { prod } = env;
   const config = {
     mode: prod ? 'production' : 'development',
@@ -15,7 +15,7 @@ module.exports = function(env = {}, argv) {
       path: dist,
       filename: prod ? 'countdown-plus.min.js' : 'countdown-plus.js',
       libraryTarget: 'umd',
-      library: 'vue-countdown-plus'
+      library: 'VueCountdownPlus'
     },
     module: {
       rules: [

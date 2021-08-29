@@ -22,6 +22,7 @@ export default {
     return {
       currentTime: 0,
       restTime: 0,
+      resolved: {},
       now: 0,
       timer: 0,
       inCountdown: false
@@ -29,14 +30,7 @@ export default {
   },
   computed: {
     stepInterval() {
-      const { format } = this
-      if (format.indexOf('s') > -1 || format.indexOf('S') > -1) {
-        return 30
-      }
-      return 1000
-    },
-    resolved() {
-      return resolveCountdown(this.currentTime, this.format)
+      return /s/i.test(this.format) ? 30 : 1000
     },
     formatted() {
       return formatCountdown(this.resolved, this.format)
@@ -54,12 +48,25 @@ export default {
       this.inCountdown = true
     },
     _step() {
-      const { restTime, now } = this
+      const { restTime, now, format, formatted } = this
       const interval = Date.now() - now
-      if (restTime > interval) {
-        this.currentTime = restTime - interval
-      } else {
-        this.currentTime = 0
+      const target = (
+        restTime > interval
+          ? restTime - interval
+          : 0
+      )
+      const thisResolved = resolveCountdown(target, format)
+      const thisFormatted = formatCountdown(thisResolved, format)
+      if (thisFormatted !== formatted) {
+        this.$emit('change', {
+          currentTime: target,
+          resolved: thisResolved,
+          formatted: thisFormatted
+        })
+        this.resolved = thisResolved
+      }
+      this.currentTime = target
+      if (restTime <= interval) {
         this.stop()
       }
     },
@@ -69,6 +76,7 @@ export default {
     },
     reset() {
       this.currentTime = this.restTime = this.time
+      this.resolved = resolveCountdown(this.currentTime, this.format)
       this._doStop()
     },
     _doStop() {
@@ -78,13 +86,28 @@ export default {
   },
   created() {
     this.currentTime = this.restTime = this.time
+    this.resolved = resolveCountdown(this.currentTime, this.format)
     if (this.autoStart) {
       this.start()
     }
   },
-  render() {
-    return (
-      <div>{ this.$slots.default || this.formatted }</div>
+  render(h) {
+    const {
+      currentTime,
+      resolved,
+      formatted
+    } = this
+    return h(
+      'div',
+      [
+        this.$scopedSlots.default
+          ? this.$scopedSlots.default({
+              currentTime,
+              resolved,
+              formatted
+            })
+          : this.formatted
+      ]
     )
   }
 }
