@@ -98,7 +98,7 @@ export default {
       formatted
     } = this
     return h(
-      'div',
+      'span',
       [
         this.$scopedSlots.default
           ? this.$scopedSlots.default({
