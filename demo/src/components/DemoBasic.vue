@@ -1,7 +1,7 @@
 <template>
   <demo-block title="Basic Usage">
     <countdown-plus :time="30 * 60 * 60 * 1000" />
-    <source-code>{{ code }}</source-code>
+    <source-code lang="xml" :code="code" />
   </demo-block>
 </template>
 <script>

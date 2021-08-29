@@ -17,8 +17,8 @@
         <template v-slot="{ formatted }">{{ formatted }}s</template>
       </countdown-plus>
     </Button>
-    <source-code>{{ templateCode }}</source-code>
-    <source-code>{{ scriptCode }}</source-code>
+    <source-code lang="xml" :code="templateCode" />
+    <source-code lang="javascript" :code="scriptCode" />
   </demo-block>
 </template>
 <script>

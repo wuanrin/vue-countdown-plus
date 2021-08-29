@@ -10,8 +10,8 @@
       <Button @click="pause">Pause</Button>
       <Button @click="reset">Reset</Button>
     </div>
-    <source-code>{{ templateCode }}</source-code>
-    <source-code>{{ scriptCode }}</source-code>
+    <source-code lang="xml" :code="templateCode" />
+    <source-code lang="javascript" :code="scriptCode" />
   </demo-block>
 </template>
 <script>

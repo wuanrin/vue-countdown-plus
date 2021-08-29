@@ -1,13 +1,13 @@
 <template>
-  <demo-block title="Countdown Event">
+  <demo-block title="Countdown Events">
     <countdown-plus
       :time="5 * 1000"
       format="ss"
       @change="handleChange"
       @finish="handleFinish"
     />
-    <source-code>{{ templateCode }}</source-code>
-    <source-code>{{ scriptCode }}</source-code>
+    <source-code lang="xml" :code="templateCode" />
+    <source-code lang="javascript" :code="scriptCode" />
   </demo-block>
 </template>
 <script>
@@ -34,8 +34,8 @@ export default {
     }
   },
   methods: {
-    handleChange (e) {
-      console.log(e.formatted)
+    handleChange ({ currentTime, resolved, formatted }) {
+      console.log(currentTime, resolved, formatted)
     },
     handleFinish () {
       console.log('finished')

@@ -4,7 +4,7 @@
       :time="30 * 60 * 60 * 1000"
       format="DD ~Day, HH:mm:ss"
     />
-    <source-code>{{ code }}</source-code>
+    <source-code lang="xml" :code="code" />
   </demo-block>
 </template>
 <script>

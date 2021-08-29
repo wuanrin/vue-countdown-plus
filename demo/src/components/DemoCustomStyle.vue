@@ -10,7 +10,7 @@
         <span class="countdown-item">{{ resolved.ss }}</span>
       </template>
     </countdown-plus>
-    <source-code>{{ code }}</source-code>
+    <source-code lang="xml" :code="code" />
   </demo-block>
 </template>
 <script>
