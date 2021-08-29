@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <countdown-plus :time="time" />
-  </div>
+  <demo-block title="Basic Usage">
+    <countdown-plus :time="30 * 60 * 60 * 1000" />
+    <source-code>{{ code }}</source-code>
+  </demo-block>
 </template>
 <script>
 export default {
   name: 'DemoBasic',
-  data() {
+  data () {
     return {
-      time: 30 * 60 * 60 * 1000
+      code: '<countdown-plus :time="30 * 60 * 60 * 1000" />'
     }
   }
 }

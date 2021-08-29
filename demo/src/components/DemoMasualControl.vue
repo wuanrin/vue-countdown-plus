@@ -1,23 +1,56 @@
 <template>
-  <div>
-    <countdown-plus ref="countdown" :time="time" :auto-start="false" />
+  <demo-block title="Masual Control">
+    <countdown-plus
+      ref="countdown"
+      :time="30 * 60 * 60 * 1000"
+      :auto-start="false"
+    />
     <div class="control-buttons">
-      <button @click="start">Start</button>
-      <button @click="pause">Pause</button>
-      <button @click="reset">Reset</button>
+      <Button @click="start">Start</Button>
+      <Button @click="pause">Pause</Button>
+      <Button @click="reset">Reset</Button>
     </div>
-  </div>
+    <source-code>{{ templateCode }}</source-code>
+    <source-code>{{ scriptCode }}</source-code>
+  </demo-block>
 </template>
 <script>
+const templateCode = `<countdown-plus
+  ref="countdown"
+  :time="30 * 60 * 60 * 1000"
+  :auto-start="false"
+/>
+<div class="control-buttons">
+  <Button @click="start">Start</Button>
+  <Button @click="pause">Pause</Button>
+  <Button @click="reset">Reset</Button>
+</div>`
+
+const scriptCode = `export default {
+  methods: {
+    start() {
+      this.$refs.countdown.start()
+    },
+    pause() {
+      this.$refs.countdown.stop()
+    },
+    reset() {
+      this.$refs.countdown.reset()
+    }
+  }
+}`
+
 export default {
   name: 'DemoMasualControl',
   data() {
     return {
-      time: 30 * 60 * 60 * 1000
+      templateCode,
+      scriptCode
     }
   },
   methods: {
     start() {
+      console.log('start')
       this.$refs.countdown.start()
     },
     pause() {
@@ -35,13 +68,6 @@ export default {
 }
 
 .control-buttons button {
-  height: 26px;
   margin-right: 10px;
-  padding: 0 10px;
-  border: none;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #fff;
-  background-color: #4395ff;
 }
 </style>

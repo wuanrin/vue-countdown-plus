@@ -1,40 +1,13 @@
 <template>
   <div class="page">
-    <h2 class="page-title">VueCountdownPlus Demo</h2>
-    <div class="demo-item">
-      <h3 class="demo-title">Basic Usage</h3>
-      <div class="demo-content">
-        <demo-basic />
-      </div>
-    </div>
+    <h2 class="page-title">VueCountdownPlus Examples</h2>
 
-    <div class="demo-item">
-      <h3 class="demo-title">Custom Format</h3>
-      <div class="demo-content">
-        <demo-custom-format />
-      </div>
-    </div>
-
-    <div class="demo-item">
-      <h3 class="demo-title">Custom Style</h3>
-      <div class="demo-content">
-        <demo-custom-style />
-      </div>
-    </div>
-
-    <div class="demo-item">
-      <h3 class="demo-title">Masual Control</h3>
-      <div class="demo-content">
-        <demo-masual-control />
-      </div>
-    </div>
-
-    <div class="demo-item">
-      <h3 class="demo-title">Second Countdown</h3>
-      <div class="demo-content">
-        <demo-second-countdown />
-      </div>
-    </div>
+    <demo-basic />
+    <demo-custom-format />
+    <demo-custom-style />
+    <demo-masual-control />
+    <demo-second-countdown />
+    <demo-countdown-event />
   </div>
 </template>
 <script>
@@ -43,6 +16,7 @@ import DemoCustomFormat from './DemoCustomFormat.vue'
 import DemoCustomStyle from './DemoCustomStyle.vue'
 import DemoMasualControl from './DemoMasualControl.vue'
 import DemoSecondCountdown from './DemoSecondCountdown.vue'
+import DemoCountdownEvent from './DemoCountdownEvent.vue'
 
 export default {
   name: 'CountdownDemo',
@@ -51,34 +25,18 @@ export default {
     DemoCustomFormat,
     DemoCustomStyle,
     DemoMasualControl,
-    DemoSecondCountdown
+    DemoSecondCountdown,
+    DemoCountdownEvent
   }
 }
 </script>
 <style>
 .page {
-  width: 600px;
+  max-width: 800px;
   margin: auto;
 }
 .page-title {
-  margin-bottom: 30px;
-  font-size: 24px;
-}
-
-.demo-item + .demo-item {
-  margin-top: 40px;
-}
-
-.demo-title {
-  margin: 0 0 10px 20px;
-  padding: 0;
-  font-size: 18px;
-  font-weight: normal;
-}
-
-.demo-content {
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #f3f3f3;
+  margin: 50px 0;
+  font-size: 30px;
 }
 </style>
