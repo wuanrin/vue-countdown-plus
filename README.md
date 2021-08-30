@@ -1,6 +1,8 @@
 # vue-countdown-plus
 
-A simple countdown component for Vue2.0+.
+A simple countdown component for Vue2.x.
+
+### [Live Demo](https://wuanrin.github.io/vue-countdown-plus/)
 
 ## Installation
 
@@ -32,11 +34,9 @@ npm install vue-countdown-plus --save
   :time="30 * 60 * 60 * 1000"
   format="DD ~Day, HH:mm:ss"
 >
-  <template v-slot:default="{ resolved }">
-    <span>{{ resolved.HH }}</span>
-    :
-    <span>{{ resolved.mm }}</span>
-    :
+  <template v-slot="{ resolved }">
+    <span>{{ resolved.HH }}</span> :
+    <span>{{ resolved.mm }}</span> :
     <span>{{ resolved.ss }}</span>
   </template>
 </countdown-plus>
@@ -181,3 +181,7 @@ So you can custom display according `resolved`.
 | resolved    | object  | Remaining countdown after resolving  |
 | formatted   | string  | Remaining countdown after formatting |
 | inCountdown | boolean | Whether in countdown                 |
+
+## License
+
+vue-countdown-plus is licensed under [The MIT License](https://github.com/xiaokaike/vue-color/blob/HEAD/LICENSE).
