@@ -184,4 +184,4 @@ So you can custom display according `resolved`.
 
 ## License
 
-vue-countdown-plus is licensed under [The MIT License](https://github.com/xiaokaike/vue-color/blob/HEAD/LICENSE).
+vue-countdown-plus is licensed under [The MIT License](https://github.com/wuanrin/vue-countdown-plus/blob/master/LICENSE).

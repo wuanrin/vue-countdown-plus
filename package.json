@@ -1,6 +1,6 @@
 {
   "name": "vue-countdown-plus",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A simple countdown component for Vue2.x.",
   "main": "dist/countdown-plus.js",
   "scripts": {
