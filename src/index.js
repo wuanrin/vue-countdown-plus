@@ -2,7 +2,6 @@ import { resolveCountdown, formatCountdown } from './utils'
 
 export default {
   name: 'CountdownPlus',
-  emits: ['finish'],
   props: {
     // Countdown time. ms
     time: {
