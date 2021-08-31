@@ -32,12 +32,12 @@ npm install vue-countdown-plus --save
 ```html
 <countdown-plus
   :time="30 * 60 * 60 * 1000"
-  format="DD ~Day, HH:mm:ss"
+  format="HH:mm:ss"
 >
   <template v-slot="{ resolved }">
-    <span>{{ resolved.HH }}</span> :
-    <span>{{ resolved.mm }}</span> :
-    <span>{{ resolved.ss }}</span>
+    <span class="countdown-item">{{ resolved.HH }}</span> :
+    <span class="countdown-item">{{ resolved.mm }}</span> :
+    <span class="countdown-item">{{ resolved.ss }}</span>
   </template>
 </countdown-plus>
 ```
@@ -46,7 +46,11 @@ npm install vue-countdown-plus --save
 
 ```html
 <div>
-  <countdown-plus ref="countdown" :time="time" :auto-start="false" />
+  <countdown-plus
+    ref="countdown"
+    :time="30 * 60 * 60 * 1000"
+    :auto-start="false"
+  />
   <div class="control-buttons">
     <button @click="start">Start</button>
     <button @click="pause">Pause</button>
@@ -57,12 +61,6 @@ npm install vue-countdown-plus --save
 
 ```js
 export default {
-  name: 'DemoMasualControl',
-  data() {
-    return {
-      time: 30 * 60 * 60 * 1000
-    }
-  },
   methods: {
     start() {
       this.$refs.countdown.start()
