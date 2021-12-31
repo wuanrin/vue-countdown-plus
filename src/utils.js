@@ -13,11 +13,16 @@ const units = [
 // Decompose time into time units
 export function resolveCountdown(countdown, format = 'HH:mm:ss') {
   const res = {}
-  const thisUnits = units.filter(unit => format.indexOf(unit.symbol) > -1)
+  const thisUnits = units.filter(
+    unit => (
+      format.indexOf(unit.symbol) > -1 &&
+      format.indexOf('~' + unit.symbol) < 0
+    )
+  )
   for (let i = 0, l = thisUnits.length; i < l; i++) {
     const { symbol, value } = thisUnits[i]
 
-    // Use ceil method for the smallest unit
+    // Use ceil method when only unit
     const unitValue = (
       l === 1
         ? Math.ceil(countdown / value)
@@ -32,7 +37,7 @@ export function resolveCountdown(countdown, format = 'HH:mm:ss') {
 
 // Format countdown
 export function formatCountdown(countdown, format = 'HH:mm:ss') {
-  // Check if resolved
+  // Check whether resolved
   const time = (
     typeof countdown === 'number'
       ? resolveCountdown(countdown, format)
@@ -44,8 +49,9 @@ export function formatCountdown(countdown, format = 'HH:mm:ss') {
   const keys = Object.keys(time).sort((a, b) => b.length - a.length)
   let rs = format
   keys.forEach(key => {
-    const regex = new RegExp('(?<!~)' + key, 'g')
-    rs = rs.replace(regex, time[key])
+    if (rs.indexOf(key) > -1 && rs.indexOf('~' + key) < 0) {
+      rs = rs.replace(key, time[key])
+    }
   })
 
   // Escape
